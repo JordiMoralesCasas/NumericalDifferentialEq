@@ -12,11 +12,8 @@ double forward_derivative(double (*f)(double*), double* pnt, int var, int n_vars
 {
     // TODO: comprobar que var no se salga del rango
     if (var >= n_vars) {
-        printf(
-            "Cannot get the derivative with respect to the specified variable\
-            (var is greater than the number of variables) \n"
-        );
-        return 0;
+        printf("ERROR: Cannot get the derivative with respect to the specified variable (var is greater than the number of variables) \n");
+        return -1;
     }
 
 
@@ -45,10 +42,7 @@ double forward_derivative(double (*f)(double*), double* pnt, int var, int n_vars
 double backward_derivative(double (*f)(double*), double* pnt, int var, int n_vars)
 {
     if (var >= n_vars) {
-        printf(
-            "Cannot get the derivative with respect to the specified variable\
-            (var is greater than the number of variables) \n"
-        );
+        printf("ERROR: Cannot get the derivative with respect to the specified variable (var is greater than the number of variables) \n");
         return 0;
     }
 
@@ -79,10 +73,7 @@ double central_derivative(double (*f)(double*), double* pnt, int var, int n_vars
 {
     // TODO: comprobar que var no se salga del rango
     if (var >= n_vars) {
-        printf(
-            "Cannot get the derivative with respect to the specified variable\
-            (var is greater than the number of variables) \n"
-        );
+        printf("ERROR: Cannot get the derivative with respect to the specified variable (var is greater than the number of variables) \n");
         return 0;
     }
 

@@ -1,25 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include "../include/main.h"
 
-#include "../include/taylor.h"
-#include "../include/euler.h"
-#include "../include/differentiation.h"
-
-double f(double* x) { return pow(x[0]*x[1], 4) + 2*x[0] + exp(x[0])*x[1];}
+double f(double* x) { return x[0]*x[1] + exp(x[1]/10)/(x[0]+1);}
 
 int main(int argc, char *argv[]) {
 
-	double vars[2] = {2,3};
+	double pvi[2] = {0, 3};
+	struct table2D *table1;
 
-	double a = forward_derivative(f, vars, 0, 2);
-	printf("%0.24lf\n", a);
+	taylor2(f, pvi, 0.1, 2, &table1);
 
-	double b = backward_derivative(f, vars, 0, 2);
-	printf("%0.24lf\n", b);
+	for (int i = 0; i <= table1->n; i++) {
+		printf("%lf %lf\n", table1->ts[i], table1->ys[i]);
+	}
 
-	double c = central_derivative(f, vars, 0, 2);
-	printf("%0.24lf\n", c);
+
+
+	/*double pvi2[2] = {0, 1};
+	struct table2D *table2;
+
+	taylor2(f, pvi2, 2, 2, &table2);
+	printf("%lf %lf \n", table2->ts[table2->n], table2->ys[table2->n]);*/
 
 	return 0;
 }

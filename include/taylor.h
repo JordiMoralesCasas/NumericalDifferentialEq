@@ -6,5 +6,9 @@
 #include "../include/graphic.h"
 
 
+#ifndef TAYLOR_H
+#define TAYLOR_H
 
 double taylor2(double (*f)(double*), double* ivp, double h, double tn, struct table2D **tab);
+
+#endif

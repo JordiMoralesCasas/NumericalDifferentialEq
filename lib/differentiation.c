@@ -23,7 +23,7 @@ double forward_derivative(double (*f)(double*), double* pnt, int var, int n_vars
 
     // generate a new variables vector after taking an h-step
     double* inc_x = malloc(n_vars * sizeof(double));
-    for (int i = 0; i < 2; i++) inc_x[i] = pnt[i]; // copy content of pnt to inc_x
+    for (int i = 0; i < n_vars; i++) inc_x[i] = pnt[i]; // copy content of pnt to inc_x
     inc_x[var] += h;
 
     return ((*f)(inc_x) - (*f)(pnt)) / h;
@@ -53,7 +53,7 @@ double backward_derivative(double (*f)(double*), double* pnt, int var, int n_var
 
     // generate a new variables vector after taking an h-step
     double* dec_x = malloc(n_vars * sizeof(double));
-    for (int i = 0; i < 2; i++) dec_x[i] = pnt[i]; // copy content of pnt to inc_x
+    for (int i = 0; i < n_vars; i++) dec_x[i] = pnt[i]; // copy content of pnt to inc_x
     dec_x[var] -= h;
 
     return ((*f)(pnt) - (*f)(dec_x)) / h;
@@ -83,11 +83,11 @@ double central_derivative(double (*f)(double*), double* pnt, int var, int n_vars
 
     // generate a new variables vector after taking an h-step
     double* inc_x = malloc(n_vars * sizeof(double));
-    for (int i = 0; i < 2; i++) inc_x[i] = pnt[i]; // copy content of pnt to inc_x
+    for (int i = 0; i < n_vars; i++) inc_x[i] = pnt[i]; // copy content of pnt to inc_x
     inc_x[var] += h;
 
     double* dec_x = malloc(n_vars * sizeof(double));
-    for (int i = 0; i < 2; i++) dec_x[i] = pnt[i]; // copy content of pnt to inc_x
+    for (int i = 0; i < n_vars; i++) dec_x[i] = pnt[i]; // copy content of pnt to inc_x
     dec_x[var] -= h;
 
     return ((*f)(inc_x) - (*f)(dec_x)) / (2*h);

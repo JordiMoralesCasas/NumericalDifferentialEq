@@ -13,6 +13,8 @@ struct table2D {
     int n;
 };
 
-int plotODE(struct table2D **tab, int num);
+int plotODE(struct table2D **tabs, int num);
+
+int showTable(struct table2D *tab);
 
 #endif

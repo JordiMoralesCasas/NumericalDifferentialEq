@@ -1,4 +1,0 @@
-Una funcion a la que le paso una lista de objetos points2D y
-muestra los retratos de fase de todos juntos, con diferentes colores y etiquetados
-
-Una funcion que imprime una tabla de los valores obtenidos
